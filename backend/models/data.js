@@ -1,11 +1,35 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('teste', 'root', '12345',{
+const sequelize = new Sequelize('aviao', 'kevin', '12345',{
     host: "localhost",
     dialect: "mysql"
 })
 
-sequelize.authenticate().then(function(){
-    console.log("conexão ao banco de dados estabelecida com sucesso");
-}).catch(function(err){
-    console.log(`Não foi possivel se conectar ao banco de dados ${err}`)
+const Dados = sequelize.define('dados_pessoais', {
+    nome_completo: {
+        type: Sequelize.TEXT
+    },
+    endereco: {
+        type: Sequelize.STRING
+    },
+    email: {
+        type: Sequelize.STRING
+    },
+    cidade: {
+        type: Sequelize.STRING
+    },
+    estado: {
+        type: Sequelize.STRING
+    },
+    cep: {
+        type: Sequelize.STRING
+    },
+    telefone: {
+        type: Sequelize.STRING
+    },
+    uf: {
+        type: Sequelize.STRING
+    }
+
 })
+
+Dados.sync({force: true})
