@@ -1,20 +1,19 @@
-const express = require("express");
+const express = require('express');
+const bodyParser = require('body-parser');
+const rotas = require('./routes/rotas')
+const Dados = require("./models/data");
+
+
 const app = express();
-app.use(express.json());
-const bodyParser = require("body-parser")
 
-
-
-app.post("/", function(require, response){
-   response.send("rota funcinando")
-    
-})
-
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-const PORT = 8081
-app.listen(PORT, ()=> {
-    console.log(`Servidor rodando na porta ${PORT}`)
-});
 
+app.use('/rotas', rotas)
+
+let PORT = 8081
+
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});

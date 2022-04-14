@@ -11,39 +11,30 @@ import Final from "./Components/Footer/footer"
 
 
 
+
+
 function App() {
 
   
   const [nome, setNome] = useState('')
   const [endereco, setEndereco] = useState('')
-  const [ email, setEmail] =useState('')
+  const [email, setEmail] =useState('')
   const [cidade, setCidade] = useState('')
   const [estado, setEstado] = useState('')
   const [cep, setCep] = useState('')
   const [telefone, setTelefone] = useState('')
   const [uf, setUf] = useState('')
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const data = {
-      nome,
-      endereco,
-      email,
-      cidade,
-      estado,
-      cep,
-      telefone,
-      uf
-    }
+  
 
-    console.log(data)
-  }
+    
 
+    
 
   return (
     <div>
       <Barra />
-      <form className="formulario" action="http://localhost:8081" method="POST"  >
+      <form className="formulario" method="POST" action="http://localhost:8081/rotas/add">
 
 
         <label for="inputPassword5" class="form-label">Nome completo:</label>
@@ -54,38 +45,38 @@ function App() {
 
 
         <label for="inputPassword5" class="form-label">Endereço:</label>
-        <input type="text" id="inputPassword5" name="endereco" value={endereco} onChange={(e)=> setEndereco(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="endereco" value={endereco} onChange={(e)=> setEndereco(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="endereco" class="form-text">
           Insira seu endereço
         </div><br />
 
 
         <label for="inputPassword5" class="form-label">Email:</label>
-        <input type="text" id="inputPassword5" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="email" class="form-text">
           Insira seu Email
         </div><br />
 
         <label for="inputPassword5" class="form-label">Cidade:</label>
-        <input type="text" id="inputPassword5" name="cidade" value={cidade} onChange={(e)=> setCidade(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="cidade" value={cidade} onChange={(e)=> setCidade(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="cidade" class="form-text">
           Insira sua cidade
         </div><br />
 
         <label for="inputPassword5" class="form-label">Estado:</label>
-        <input type="text" id="inputPassword5" name="estado" value={estado} onChange={(e)=> setEstado(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="estado" value={estado} onChange={(e)=> setEstado(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="estado" class="form-text">
           insira seu estado
         </div><br />
 
         <label for="inputPassword5" class="form-label">CEP:</label>
-        <input type="text" id="inputPassword5" name="cep" value={cep} onChange={(e)=> setCep(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="cep" value={cep} onChange={(e)=> setCep(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="cep" class="form-text">
           insira seu CEP
         </div><br />
 
         <label for="inputPassword5" class="form-label">Telefone:</label>
-        <input type="text" id="inputPassword5" name="telefone" value={telefone} onChange={(e)=> setTelefone(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
+        <input type="text" required id="inputPassword5" name="telefone" value={telefone} onChange={(e)=> setTelefone(e.target.value)} class="form-control" aria-describedby="passwordHelpBlock" />
         <div id="telefone" class="form-text">
           insira seu Telefone
         </div><br />
@@ -97,7 +88,7 @@ function App() {
         </div><br />
 
 
-        <button type="submit"  class="btn btn-warning">Warning</button><br />
+        <button type="submit"  class="btn btn-warning">Salvar</button><br />
 
 
       </form>

@@ -32,4 +32,6 @@ const Dados = sequelize.define('dados_pessoais', {
 
 })
 
-Dados.sync({force: true})
+
+
+module.exports = Dados
