@@ -34,6 +34,14 @@ router.get('editar/:id', (req, res)=>{
 
 })
 
+router.get('/deletar', (req, res)=> {
+     Dados.destroy({
+        truncate: true
+        
+      });
+      
+})
+
 
 
 router.get('/', (req, res) => {
